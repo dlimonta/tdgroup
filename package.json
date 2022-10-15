@@ -8,7 +8,8 @@
     "build:beta": "ng build --configuration=beta",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "fmt": "npx prettier --write ."
+    "fmt": "npx prettier --write .",
+    "fmt:check": "npx prettier --check ."
   },
   "private": true,
   "dependencies": {
