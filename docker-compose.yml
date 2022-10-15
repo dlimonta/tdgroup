@@ -1,19 +1,19 @@
 version: "3.8"
 
 networks:
-  default:
-    driver: bridge
+    default:
+        driver: bridge
 
 services:
-  frontend:
-    container_name: frontend
-    image: tdgroup-fe:latest
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    volumes:
-      - /usr/src/app/node_modules
-    networks:
-      - default
-    ports:
-      - 80:80
+    frontend:
+        container_name: frontend
+        image: tdgroup-fe:latest
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        volumes:
+            - /usr/src/app/node_modules
+        networks:
+            - default
+        ports:
+            - 80:80
