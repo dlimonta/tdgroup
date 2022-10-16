@@ -5,8 +5,31 @@
 
 html,
 body {
-    background: transparent;
     height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+    background: linear-gradient(
+        to top left,
+        #2f22b8,
+        #4410db,
+        #7e15e2,
+        #a313e3
+    );
+    animation: gradient 2s ease-in-out infinite alternate;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
