@@ -32,7 +32,12 @@
         <div
             class="flex h-full items-center justify-center bg-[#2F22B8] text-white"
         >
-            <p>CIAO LUCRI!!!!!</p>
+            <app-login-form
+                class="opacity-0 w-1/2"
+                [ngClass]="{
+                    'transition-all opacity-100 duration-500': showLogin
+                }"
+            ></app-login-form>
         </div>
     </div>
 </div>

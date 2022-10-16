@@ -6,11 +6,12 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./home-page.component.scss"],
 })
 export class HomePageComponent implements OnInit {
+    showLogin: boolean = false;
     constructor() {}
 
     ngOnInit(): void {}
 
     onSignup() {
-        window.alert("sign up");
+        this.showLogin = !this.showLogin;
     }
 }
