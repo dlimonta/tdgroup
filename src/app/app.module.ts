@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { HomePageComponent } from "./modules/home-page/home-page.component";
 import { LoginFormComponent } from "./components/login-form/login-form.component";
 import { HeaderComponent } from "./components/header/header.component";
+import { EventCardComponent } from './components/event-card/event-card.component';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { HeaderComponent } from "./components/header/header.component";
         HomePageComponent,
         LoginFormComponent,
         HeaderComponent,
+        EventCardComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
