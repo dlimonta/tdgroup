@@ -1,18 +1,16 @@
-<div id="wrapper" class="grid grid-cols-3 px-6">
-    <div
-        id="event-card-wrapper"
-        class="col-start-3 flex snap-x snap-mandatory gap-16 overflow-hidden py-12"
-    >
+<div id="wrapper" class="">
+    <div id="event-card-wrapper" class="flex gap-16 overflow-hidden py-12">
         <div
             id="{{ i.toString() }}"
             *ngFor="let item of eventList; let i = index"
-            class="min-w-fit scale-90 snap-center items-center justify-center rounded-xl bg-white shadow"
+            class="min-w-fit scale-90 items-center justify-center rounded-xl bg-white opacity-50 shadow"
             [ngClass]="{
-                'scale-100 transition-transform duration-500':
+                'scale-100 opacity-100 transition-transform duration-500':
                     selectedIndex === i
             }"
             (click)="selectCard(i)"
-            (mouseover)="selectCard(i)"
+            (mouseover)="selectCard(i); stopCarousel(true)"
+            (mouseout)="stopCarousel(false)"
         >
             <div id="event-title" class="flex items-center gap-4 p-4">
                 <div id="icon" class="text-black">
@@ -38,7 +36,12 @@
                     </p>
                 </div>
             </div>
-            <div id="event-image" class="relative h-36 w-auto bg-[#FB3983]">
+            <div
+                id="event-image"
+                class="relative flex h-36 w-auto items-center justify-center bg-slate-500"
+            >
+                <img class="h-full" [src]="item.imgUrl" />
+
                 <div
                     id="event-calendar"
                     class="absolute -bottom-6 left-4 z-10 flex max-w-fit flex-col items-center justify-center rounded-lg bg-white px-4 py-3 shadow"
@@ -76,6 +79,6 @@
         class="my-4 inline-flex h-4 w-4 cursor-pointer rounded-full bg-white opacity-50"
         *ngFor="let dot of eventList; let i = index"
         [ngClass]="{ 'opacity-100': selectedIndex === i }"
-        (click)="selectCard(i)"
+        (click)="selectCard(i); stopCarousel(true)"
     ></div>
 </div>

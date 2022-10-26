@@ -18,6 +18,7 @@ export class EventCardComponent implements OnInit {
                       suscipit debitis ducimus et laudantium repellat? Qui
                       deserunt sint fuga optio eligendi?`,
             },
+            imgUrl: "https://prestigedance.com/wp-content/uploads/2020/08/Dance-Classes.jpg",
         },
         {
             title: "HipHop Event",
@@ -30,6 +31,7 @@ export class EventCardComponent implements OnInit {
                       suscipit debitis ducimus et laudantium repellat? Qui
                       deserunt sint fuga optio eligendi?`,
             },
+            imgUrl: "https://prestigedance.com/wp-content/uploads/2020/08/Dance-Classes.jpg",
         },
         {
             title: "Classic Event",
@@ -42,6 +44,7 @@ export class EventCardComponent implements OnInit {
                       suscipit debitis ducimus et laudantium repellat? Qui
                       deserunt sint fuga optio eligendi?`,
             },
+            imgUrl: "https://prestigedance.com/wp-content/uploads/2020/08/Dance-Classes.jpg",
         },
         {
             title: "Some Event",
@@ -54,14 +57,18 @@ export class EventCardComponent implements OnInit {
                       suscipit debitis ducimus et laudantium repellat? Qui
                       deserunt sint fuga optio eligendi?`,
             },
+            imgUrl: "https://prestigedance.com/wp-content/uploads/2020/08/Dance-Classes.jpg",
         },
     ];
 
     selectedIndex: number = 0;
+    carouselInterval: any;
 
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.startCarousel();
+    }
 
     selectCard(index: number) {
         this.selectedIndex = index;
@@ -71,5 +78,22 @@ export class EventCardComponent implements OnInit {
             block: "center",
             inline: "center",
         });
+    }
+
+    startCarousel() {
+        this.carouselInterval = setInterval(() => {
+            this.selectedIndex === this.eventList.length - 1
+                ? (this.selectedIndex = 0)
+                : this.selectedIndex++;
+            this.selectCard(this.selectedIndex);
+        }, 10 * 1000);
+    }
+
+    stopCarousel(stop: boolean) {
+        if (stop && this.carouselInterval) {
+            clearInterval(this.carouselInterval);
+        } else {
+            this.startCarousel();
+        }
     }
 }

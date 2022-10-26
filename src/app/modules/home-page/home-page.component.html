@@ -32,13 +32,16 @@
         </div>
         <!-- SECOND COLUMN -->
         <div
-            class="flex h-full items-center justify-center rounded-tl-xl bg-[#2F22B8] text-white shadow-2xl"
+            class="grid h-full grid-cols-3 items-center justify-center rounded-tl-xl bg-[#2F22B8] px-6 text-white shadow-2xl"
         >
             <app-login-form
                 class="w-1/2 max-w-sm"
                 *ngIf="showLogin"
             ></app-login-form>
-            <app-event-card *ngIf="!showLogin"></app-event-card>
+            <app-event-card
+                *ngIf="!showLogin"
+                class="col-start-3"
+            ></app-event-card>
         </div>
     </div>
 </div>

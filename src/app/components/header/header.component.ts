@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-    sectionList: string[] = ["blog", "eventi", "contatti"];
+    navList: string[] = ["About", "Contatti"];
 
     constructor() {}
 
